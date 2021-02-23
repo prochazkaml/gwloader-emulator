@@ -6,7 +6,7 @@ Emulates the GWLoader module using OpenOCD. Written in Python, because the OpenO
 
 1) Clone this repository. The directory this repository is in will serve as the emulated SD card.
 
-2) Clone the [bootloader](https://github.com/prochazkaml/game-and-watch-bootloader), compile it as per the instructions, copy the resulting LOADER.BIN file from the bootloader's build directory into this directory. 
+2) Clone the [bootloader](https://github.com/prochazkaml/game-and-watch-bootloader) and compile it as per the instructions, copy the resulting LOADER.BIN file from the bootloader's build directory into this directory. 
 
 3) Run OpenOCD in a separate console. This is usually done like this:
 ```
@@ -36,4 +36,4 @@ openocd -f interface.cfg 2>/dev/null
 - [ ] 0x7E: Reset G&W, but keep GWLoader running
 - [X] 0x7F: Reset G&W and halt GWLoader
 
-It's just enough for it to be usable with the bootloader to load homebrew.
+It's just enough for it to be usable with the bootloader to load homebrew. [Here](https://github.com/prochazkaml/gwloader-emulator/blob/main/Protocol.md)'s the full command specification.
