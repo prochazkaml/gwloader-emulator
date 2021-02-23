@@ -17,3 +17,23 @@ openocd -f interface.cfg 2>/dev/null
 ```
 ./gwloader.py
 ```
+
+## Command support
+
+- [X] 0x01: Detection check
+- [X] 0x02: Open file for reading
+- [ ] 0x03: Open file for writing
+- [X] 0x04: Read data from file
+- [ ] 0x05: Write data to file
+- [X] 0x06: Close file
+- [ ] 0x07: Delete file
+- [ ] 0x08: Seek to start of file
+- [ ] 0x09: Seek to end of file
+- [ ] 0x0A: Seek by offset
+- [ ] 0x0B: Seek to position
+- [X] 0x0C: Enter a directory
+- [X] 0x0D: Read directory
+- [ ] 0x7E: Reset G&W, but keep GWLoader running
+- [X] 0x7F: Reset G&W and halt GWLoader
+
+It's just enough for it to be usable with the bootloader to load homebrew.
