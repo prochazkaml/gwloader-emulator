@@ -2,7 +2,9 @@
 
 The G&W communicates with the GWLoader through a 16-byte buffer at the beginning of the G&W's RAM (addresses 0x24000000-0x2400000F). The first byte is the command/status byte, through which the G&W tells the GWLoader what operation to do, and the GWLoader puts there its status.
 
-Quick summary of ARM data units:
+## Quick summary of ARM data units
+
+This will come in handy later on in this document.
 
 Unit | Size
 -----|-----
