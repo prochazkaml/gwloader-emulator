@@ -1,0 +1,3 @@
+Name=Original firmware
+Author=Nintendo
+Version=World
