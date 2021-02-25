@@ -228,5 +228,6 @@ Status code | Status meaning
 0x82|Err: Not enough space
 0x83|Err: I/O error
 0x84|Err: A file is already opened
+0x85|Err: Unknown write mode
 0xFE|Err: Unknown command
 0xFF|Processing command...
