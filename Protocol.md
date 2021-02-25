@@ -64,6 +64,7 @@ Input parameters:
 
 Address | Unit | Description
 --------|------|------------
+0x24000001|Byte|0 = overwrite mode, 1 = append mode
 0x2400000C|Word|Pointer to null-terminated filename
 
 Output parameters:
