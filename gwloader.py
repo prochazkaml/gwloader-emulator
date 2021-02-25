@@ -159,7 +159,7 @@ if __name__ == "__main__":
 					break
 					
 				elif command == 0x02:
-					printf("Got command: Open file")
+					printf("Got command: Open file for reading")
 					ack(0xFF)
 
 					name = ocd.readString(ocd.readWord(0x2400000C))
@@ -176,6 +176,34 @@ if __name__ == "__main__":
 					else:
 						printf("  Error: File \"%s\" not found.", name)
 						ack(0x81)
+						
+					break					
+				
+				elif command == 0x03:
+					printf("Got command: Open file for writing")
+					ack(0xFF)
+
+					mode = ocd.readByte(0x24000001)
+					name = ocd.readString(ocd.readWord(0x2400000C))
+
+					if mode == 0:
+						printf("  Opening file \"%s\" in overwrite mode.", name)
+						file = open(name, "wb")
+
+					elif mode == 1:
+						printf("  Opening file \"%s\" in append mode.", name)
+						file = open(name, "ab")
+					
+					else:
+						printf("  Error: unknown mode %d", mode)
+						ack(0x85)
+
+						break
+										
+					size = os.path.getsize(name)
+					printf("  File is %d bytes long.", size)
+					ocd.writeWord(0x24000004, size)
+					ack(0x00)
 						
 					break					
 				
@@ -203,10 +231,30 @@ if __name__ == "__main__":
 
 					ocd.writeMemory(8, address, bytesread, output)
 					printf("  Read %d bytes.", bytesread)
+					ocd.writeWord(0x24000004, bytesread)
 
 					ack(0x00)
 					break
 			
+				elif command == 0x05:
+					printf("Got command: Write to file")
+					ack(0xFF)
+
+					reqsize = ocd.readWord(0x24000008)
+					address = ocd.readWord(0x2400000C)
+					printf("  Writing %d bytes from address 0x%08X.", reqsize, address)
+
+					data = ocd.readMemory(8, address, reqsize)
+					
+					for i in data:
+						file.write(i.to_bytes(1, "little"))
+
+					printf("  Written %d bytes.", reqsize)
+					ocd.writeWord(0x24000004, reqsize)
+
+					ack(0x00)
+					break
+				
 				elif command == 0x06:
 					printf("Got command: Close file")
 					ack(0xFF)
