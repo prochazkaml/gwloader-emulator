@@ -22,9 +22,9 @@ openocd -f interface.cfg 2>/dev/null
 
 - [X] 0x01: Detection check
 - [X] 0x02: Open file for reading
-- [ ] 0x03: Open file for writing
+- [X] 0x03: Open file for writing
 - [X] 0x04: Read data from file
-- [ ] 0x05: Write data to file
+- [X] 0x05: Write data to file
 - [X] 0x06: Close file
 - [X] 0x07: Get current position in file
 - [X] 0x08: Seek to start of file
