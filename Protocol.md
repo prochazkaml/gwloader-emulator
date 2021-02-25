@@ -6,11 +6,11 @@ The G&W communicates with the GWLoader through a 16-byte buffer at the beginning
 
 This will come in handy later on in this document.
 
-Unit | Size
------|-----
-Byte|8 bits
-Half word|16 bits
-Word|32 bits
+Unit | Size | Range
+-----|------|------
+Byte|8 bits|0x00 to 0xFF
+Word|32 bits|0x00000000 to 0xFFFFFFFF
+Signed word|32 bits|-0x80000000 to 0x7FFFFFFF
 
 ## Command list
 
