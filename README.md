@@ -36,4 +36,4 @@ openocd -f interface.cfg 2>/dev/null
 - [ ] 0x7E: Reset G&W, but keep GWLoader running
 - [X] 0x7F: Reset G&W and halt GWLoader
 
-It's just enough for it to be usable with the bootloader to load homebrew. [Here](https://github.com/prochazkaml/gwloader-emulator/blob/main/Protocol.md)'s the full command specification.
+It's just enough for it to be usable with the bootloader to load homebrew. It does _not_ implement almost any error codes. [Here](https://github.com/prochazkaml/gwloader-emulator/blob/main/Protocol.md)'s the full command specification.
