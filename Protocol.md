@@ -9,6 +9,9 @@ This will come in handy later on in this document.
 Unit | Size | Range
 -----|------|------
 Byte|8 bits|0x00 to 0xFF
+Signed byte|8 bits|-0x80 to 0xFF
+Half word|16 bits|0x0000 to 0xFFFF
+Signed half word|16 bits|-0x8000 to 0x7FFF
 Word|32 bits|0x00000000 to 0xFFFFFFFF
 Signed word|32 bits|-0x80000000 to 0x7FFFFFFF
 
