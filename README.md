@@ -33,6 +33,7 @@ openocd -f interface.cfg 2>/dev/null
 - [X] 0x0B: Seek to position
 - [X] 0x0C: Enter a directory
 - [X] 0x0D: Read directory
+- [X] 0x7D: Halt GWLoader
 - [ ] 0x7E: Reset G&W, but keep GWLoader running
 - [X] 0x7F: Reset G&W and halt GWLoader
 
