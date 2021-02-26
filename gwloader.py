@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import time
 import socket
 import itertools
 
@@ -134,6 +135,8 @@ if __name__ == "__main__":
 		ocd.send("load_image LOADER.BIN 0x24000010 bin;")
 		ocd.send("reg pc 0x24000010;")
 		ocd.send("resume;")
+		
+		time.sleep(0.1)
 		
 		printf("Done!")
 		
@@ -372,11 +375,15 @@ if __name__ == "__main__":
 					
 					ack(0x00)
 					break
-							 
+					
+				elif command == 0x7D:
+					printf("Got command: Shut down GWLoader")
+					ack(0x00)
+					quit()
+					
 				elif command == 0x7F:
 					printf("Got command: Reboot device")
 					ocd.send("reset")
-					ocd.send("exit")
 					quit()
 					
 				else:
