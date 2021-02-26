@@ -32,6 +32,7 @@ Command | Operation
 0x0B|Seek to position
 0x0C|Enter a directory
 0x0D|Read directory
+0x7D|Halt GWLoader
 0x7E|Reset G&W, but keep GWLoader running
 0x7F|Reset G&W and halt GWLoader
 
@@ -204,6 +205,12 @@ No output parameters
 The directory list is one large null-terminated string containing multiple file names, as shown above. Note that the file names themselves are _not_ null-terminated!
 
 Before each file name is a byte, which indicates whether the name is for a file (0x01) or a directory (0x02).
+
+### 0x7D: Halt GWLoader
+
+No input parameters
+
+No output parameters
 
 ### 0x7E: Reset G&W, but keep GWLoader running
 
