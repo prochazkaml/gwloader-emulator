@@ -27,12 +27,11 @@ openocd -f interface.cfg 2>/dev/null
 - [X] 0x05: Write data to file
 - [X] 0x06: Close file
 - [X] 0x07: Get current position in file
-- [X] 0x08: Seek to start of file
-- [X] 0x09: Seek to end of file
-- [X] 0x0A: Seek by offset
-- [X] 0x0B: Seek to position
-- [X] 0x0C: Enter a directory
-- [X] 0x0D: Read directory
+- [X] 0x08: Seek from start
+- [X] 0x09: Seek by offset
+- [X] 0x0A: Seek from end
+- [X] 0x0B: Enter a directory
+- [X] 0x0C: Read directory
 - [X] 0x7D: Halt GWLoader
 - [ ] 0x7E: Reset G&W, but keep GWLoader running
 - [X] 0x7F: Reset G&W and halt GWLoader
