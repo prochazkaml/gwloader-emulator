@@ -26,12 +26,11 @@ Command | Operation
 0x05|Write data to file
 0x06|Close file
 0x07|Get current position in file
-0x08|Seek to start of file
-0x09|Seek to end of file
-0x0A|Seek by offset
-0x0B|Seek to position
-0x0C|Enter a directory
-0x0D|Read directory
+0x08|Seek from start
+0x09|Seek by offset
+0x0A|Seek from end
+0x0B|Enter a directory
+0x0C|Read directory
 0x7D|Halt GWLoader
 0x7E|Reset G&W, but keep GWLoader running
 0x7F|Reset G&W and halt GWLoader
