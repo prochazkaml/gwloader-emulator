@@ -123,9 +123,13 @@ Address | Unit | Description
 --------|------|------------
 0x24000004|Word|Current position in file
 
-### 0x08: Seek to start of file
+### 0x08: Seek from start
 
-No input parameters
+Input parameters:
+
+Address | Unit | Description
+--------|------|------------
+0x24000004|Word|Offset (in bytes)
 
 Output parameters:
 
@@ -134,17 +138,7 @@ Address | Unit | Description
 0x24000004|Word|Current position in file
 
 
-### 0x09: Seek to end of file
-
-No input parameters
-
-Output parameters:
-
-Address | Unit | Description
---------|------|------------
-0x24000004|Word|Current position in file
-
-### 0x0A: Seek by offset
+### 0x09: Seek by offset
 
 Input parameters:
 
@@ -158,13 +152,13 @@ Address | Unit | Description
 --------|------|------------
 0x24000004|Word|Current position in file
 
-### 0x0B: Seek to position
+### 0x0A: Seek from end
 
 Input parameters:
 
 Address | Unit | Description
 --------|------|------------
-0x24000004|Word|Position (in bytes)
+0x24000004|Word|Offset (in bytes)
 
 Output parameters:
 
@@ -172,7 +166,7 @@ Address | Unit | Description
 --------|------|------------
 0x24000004|Word|Current position in file
 
-### 0x0C: Enter a directory
+### 0x0B: Enter a directory
 
 Input parameters:
 
@@ -182,7 +176,7 @@ Address | Unit | Description
 
 No output parameters
 
-### 0x0D: Read directory
+### 0x0C: Read directory
 
 Input parameters:
 
