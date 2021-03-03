@@ -136,7 +136,7 @@ if __name__ == "__main__":
 		ocd.send("reg pc 0x24000010;")
 		ocd.send("resume;")
 		
-		time.sleep(0.1)
+		time.sleep(0.3)
 		
 		printf("Done!")
 		
@@ -280,10 +280,12 @@ if __name__ == "__main__":
 					break
 
 				elif command == 0x08:
-					printf("Got command: Seek to start of file")
+					printf("Got command: Seek by start of file")
 					ack(0xFF)
 					
-					offset = file.seek(0)
+					wanted = ocd.readWord(0x24000004);
+
+					offset = file.seek(wanted)
 					
 					printf("  Position is %d bytes.", offset)
 					ocd.writeWord(0x24000004, offset)
@@ -292,18 +294,6 @@ if __name__ == "__main__":
 					break
 
 				elif command == 0x09:
-					printf("Got command: Seek to end of file")
-					ack(0xFF)
-					
-					offset = file.seek(0, 2)
-										
-					printf("  Position is %d bytes.", offset)
-					ocd.writeWord(0x24000004, offset)
-					
-					ack(0x00)
-					break
-				
-				elif command == 0x0A:
 					printf("Got command: Seek by offset")
 					ack(0xFF)
 					
@@ -320,21 +310,21 @@ if __name__ == "__main__":
 					ack(0x00)
 					break
 				
-				elif command == 0x0B:
-					printf("Got command: Seek to position")
+				elif command == 0x0A:
+					printf("Got command: Seek by end of file")
 					ack(0xFF)
 					
 					wanted = ocd.readWord(0x24000004);
-					
-					offset = file.seek(wanted)
-					
+
+					offset = file.seek(wanted, 2)
+										
 					printf("  Position is %d bytes.", offset)
 					ocd.writeWord(0x24000004, offset)
 					
 					ack(0x00)
 					break
 				
-				elif command == 0x0C:
+				elif command == 0x0B:
 					printf("Got command: Enter directory")
 					ack(0xFF)
 
@@ -347,8 +337,8 @@ if __name__ == "__main__":
 
 					ack(0x00)
 					break
-				   
-				elif command == 0x0D:
+				
+				elif command == 0x0C:
 					printf("Got command: Read current directory")
 					ack(0xFF)
 					
