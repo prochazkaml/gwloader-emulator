@@ -1,3 +1,5 @@
+# NOTE: [game-and-watch-bootloader](https://github.com/prochazkaml/game-and-watch-bootloader) no longer needs communication with a host, thus this tool is now obsolete.
+
 # gwloader-emulator
 
 Emulates the GWLoader module using OpenOCD. Written in Python, because the OpenOCD team gladly provided example code in it.
